@@ -80,21 +80,27 @@ function startMatch() {
     showWord(words);
     wordInput.value = "";
     score++;
+    timeBar.classList.remove("active");
+
+
   }
   if (score === -1) {
     scoreDisplay.innerHTML = 0;
   } else {
     scoreDisplay.innerHTML = score;
   }
+
 }
 
 // Match currentWord to wordInput
 function matchWords() {
   if (wordInput.value === showingWord.innerHTML) {
     message.innerHTML = "Prawidłowo ";
+    showingWord.style.color = 'white';
     return true;
   } else {
     message.innerHTML = " ";
+
     return false;
   }
 }
@@ -114,11 +120,13 @@ function countdown() {
     // decrement
     timeBar.classList.add("active");
     time--;
+
   } else if (time === 0) {
     // game over
 
     isPlaying = false;
   }
+
   // show time
   timeDisplay.innerHTML = time;
 }
@@ -134,6 +142,9 @@ function checkStatus() {
   }
 }
 
+
+
+
 document.querySelector(".again").addEventListener("click", () => {
   location.reload();
 });
@@ -141,10 +152,7 @@ document.querySelector(".again").addEventListener("click", () => {
 // modal pop-up
 const btnModal = document.querySelector(" nav .instruction");
 
-btnModal.addEventListener("click", () => {
-  document.querySelector(".modal-wrap").classList.toggle("active");
-  // document.querySelector(".row").classList.toggle("blur");
-});
+
 
 const btnHide = document.querySelector("span.hide");
 
